@@ -80,30 +80,8 @@ if cap.isOpened():
                 frame = cv2.rectangle(frame, (xmin,ymin), (xmax,ymax), color, 2) 
                 frame = cv2.putText(frame, f'{label} ({str(score)})', (xmin,ymin), cv2.FONT_HERSHEY_SIMPLEX , 0.75, color, 1, cv2.LINE_AA)
 
-                
-                # if label == Object_classes:
-                #     x=110    #if oject is detected start motors FOR TESTING
-                #     time.sleep(1)
-                # kit.servo[0].angle = x
-                # time.sleep(1)
-               
-                # else:
-                #     x=0
 
-                # print("Initializing Servos")
-                # i2c_bus1=(busio.I2C(board.SCL, board.SDA))
-                # print("Initializing ServoKit")
-                # kit = ServoKit(channels=16, i2c=i2c_bus1)
-                # # kit[0] is the bottom servo
-                # # kit[1] is the top servo
-                # print("Done initializing")
-
-                ## Minimum speed for Throttle use channel 1 for Servo angles and channel 0 for throttle
-                #kit.servo[0].angle = 100
-                # time.sleep(1)
-                # kit.servo[0].angle = x
-                # time.sleep(1)
-
+        # if there's a stop sign, stop the car
         if(label == 'stop sign'):
             kit.servo[0].angle = 0
         else:
