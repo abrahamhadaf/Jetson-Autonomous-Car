@@ -66,6 +66,8 @@ if cap.isOpened():
     # Window
     while cv2.getWindowProperty("CSI Camera", 0) >= 0:
         ret, frame = cap.read()
+        # This line of code increases the FPS of the camera by resizing the capture width and capture height
+        frame = cv2.resize(frame,(640,360))
         if ret:
             # detection process
             objs = Object_detector.detect(frame)
