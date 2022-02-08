@@ -112,6 +112,8 @@ if cap.isOpened():
         else:
             # If no object, go at low speed
             kit.servo[0].angle = LOWSPEED
+            # Go straight (90 degrees)
+            kit.servo[1].angle = 90
 
         fps_text="fps:{:.2f}".format(fps)
         cv2.putText(frame, fps_text, (5,30), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255,255),1)
