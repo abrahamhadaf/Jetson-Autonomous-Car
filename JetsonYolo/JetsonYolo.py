@@ -10,8 +10,8 @@ from approxeng.input.selectbinder import ControllerResource
 start_time = time.time()
 
 # FOR THESE SPEEDS, THE CAR MUST BE IN TRAINING MODE OR ELSE THE CAR WILL GO FULL SPEED AND FLY TO KEMPER HALL
-STOP = 110
-LOWSPEED = 115 
+STOP = 122
+LOWSPEED = 123 
 MEDIUMSPEED = 116 
 HIGHSPEED = 117
 
@@ -94,26 +94,26 @@ if cap.isOpened():
                 [(xmin,ymin),(xmax,ymax)] = obj['bbox']
                 color = Object_colors[Object_classes.index(label)]
                 frame = cv2.rectangle(frame, (xmin,ymin), (xmax,ymax), color, 2)
-                # if(label == 'stop sign'):
-                #     print("xmin ",xmin)
-                #     print("ymin",ymin)
-                #print(xmax,ymax) 
+                if(label == "person"):
+                    print("xmin ",xmin)
+                    print("ymin",ymin)
+                    print("xmax",xmax)
+                    print("ymax", ymax) 
                 frame = cv2.putText(frame, f'{label} ({str(score)})', (xmin,ymin), cv2.FONT_HERSHEY_SIMPLEX , 0.75, color, 1, cv2.LINE_AA)
 
         if(label == "stop sign"):
             kit.servo[0].angle = STOP
             # 3 second delay for stop sign
             time.sleep(0.45)
-            # Then go
-            kit.servo[0].angle = LOWSPEED
         elif(label == "person"):
-            kit.servo[0].angle = STOP
+            if(xmin > 200):
+                kit.servo[1].angle = 60
+            elif(xmin < 200):
+                kit.servo[1].angle = 120
         
         else:
             # If no object, go at low speed
             kit.servo[0].angle = LOWSPEED
-            # Go straight (90 degrees)
-            kit.servo[1].angle = 90
 
         fps_text="fps:{:.2f}".format(fps)
         cv2.putText(frame, fps_text, (5,30), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255,255),1)
