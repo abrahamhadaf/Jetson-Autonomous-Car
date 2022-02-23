@@ -74,12 +74,6 @@ def gstreamer_pipeline(
 # Initialize Camera Intel Realsense
 dc = DepthCamera()
 
-# Create mouse event
-cv2.namedWindow("Color frame")
-cv2.setMouseCallback("Color frame", show_distance)
-
-
-
 # To flip the image, modify the flip_method parameter (0 and 2 are the most common)
 print(gstreamer_pipeline(flip_method=0))
 ##jetson camera commented out. Using (1) for the fish eye camera
@@ -88,48 +82,46 @@ fps=0
 
 print("Execution Time: --- %s seconds ---" % (time.time() - start_time))
 if dc is not None:
-    window_handle = cv2.namedWindow("CSI Camera", cv2.WINDOW_AUTOSIZE)
-    # Window
-    while cv2.getWindowProperty("CSI Camera", 0) >= 0:
-        #ret, frame = cap.read()
+
+    while dc is not None:
         ret, depth_frame, color_frame = dc.get_frame()
         depthlabel = depth_frame[point[1], point[0]]
 
-
-        #ret, depth_frame, color_frame = dc.get_frame()
-        #frame = cv2.resize(frame,(640,360))
         end=time.time()
-        # diff=end-start
-        # fps=1/diff
-        # start=end
+        diff=end-dcstart
+        fps=1/diff
+        dcstart=end
         label = ''
         if ret:
             # detection process
             objs = Object_detector.detect(color_frame)
             
-
             # plotting
             for obj in objs:
-                # print(obj)
                 label = obj['label']
                 score = obj['score']
-               # depth = obj['dis']
                 [(xmin,ymin),(xmax,ymax)] = obj['bbox']
                 color = Object_colors[Object_classes.index(label)]
                 color_frame = cv2.rectangle(color_frame, (xmin,ymin), (xmax,ymax), color, 2)
-                if(label == "stop sign"):
-                    #depthlabel = (depth_frame[point[1], point[0]]) #addition
-                    print (depth_frame[point[1], point[0]]) #addition
-                    print("xmin ",xmin)
-                    print("ymin",ymin)
-                    print("xmax",xmax)
-                    print("ymax", ymax) 
+                # if(label == "stop sign"):
+                #     print (depth_frame[point[1], point[0]]) #addition
+                #     print("xmin ",xmin)
+                #     print("ymin",ymin)
+                #     print("xmax",xmax)
+                #     print("ymax", ymax) 
                 color_frame = cv2.putText(color_frame, f'{label} ({str(score)}) ({str(depthlabel)}) ', (xmin,ymin), cv2.FONT_HERSHEY_SIMPLEX , 0.75, color, 1, cv2.LINE_AA)
 
+
+        if(label == "stop sign"):
+            depths = depth_frame[point[1], point[0]]
+            depthstop = int(depths)
+            if(depthstop < 600):
+                print("Stop Tires")
+            else:
+                print("Driving")
         # if(label == "stop sign"):
         #     kit.servo[0].angle = STOP
-        #     # 3 second delay for stop sign
-        #     time.sleep(0.45)
+
         # elif(label == "person"):
         #     if(xmin > 200):
         #         kit.servo[1].angle = 60
@@ -140,21 +132,14 @@ if dc is not None:
         #     # If no object, go at low speed
         #     kit.servo[0].angle = LOWSPEED
 
-        #fps_text="fps:{:.2f}".format(fps)
-        #cv2.putText(frame, fps_text, (5,30), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255,255),1)
-        # Show distance for a specific point
-        cv2.circle(color_frame, point, 4, (0, 0, 255))
-        distance = depth_frame[point[1], point[0]]
+        fps_text="fps:{:.2f}".format(fps)
+        cv2.putText(color_frame, fps_text, (5,30), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 255,255),1)
 
-        cv2.putText(color_frame, "{}mm".format(distance), (point[0], point[1] - 20), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 0), 2)
-
-        cv2.imshow("depth frame", depth_frame)
-        cv2.imshow("Color frame", color_frame)
-        #cv2.imshow("CSI Camera", frame)
+        cv2.imshow("Depth Frame", depth_frame)
+        cv2.imshow("Color Frame", color_frame)
         keyCode = cv2.waitKey(30)
         if keyCode == ord('q'):
             break
-    #cap.release()
     cv2.destroyAllWindows()
 else:
     print("Unable to open camera")
