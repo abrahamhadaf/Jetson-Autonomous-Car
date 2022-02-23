@@ -85,6 +85,7 @@ print(gstreamer_pipeline(flip_method=0))
 ##jetson camera commented out. Using (1) for the fish eye camera
 dcstart=0
 fps=0
+
 print("Execution Time: --- %s seconds ---" % (time.time() - start_time))
 if dc is not None:
     window_handle = cv2.namedWindow("CSI Camera", cv2.WINDOW_AUTOSIZE)
@@ -92,6 +93,8 @@ if dc is not None:
     while cv2.getWindowProperty("CSI Camera", 0) >= 0:
         #ret, frame = cap.read()
         ret, depth_frame, color_frame = dc.get_frame()
+        depthlabel = depth_frame[point[1], point[0]]
+
 
         #ret, depth_frame, color_frame = dc.get_frame()
         #frame = cv2.resize(frame,(640,360))
@@ -110,15 +113,18 @@ if dc is not None:
                 # print(obj)
                 label = obj['label']
                 score = obj['score']
+               # depth = obj['dis']
                 [(xmin,ymin),(xmax,ymax)] = obj['bbox']
                 color = Object_colors[Object_classes.index(label)]
                 color_frame = cv2.rectangle(color_frame, (xmin,ymin), (xmax,ymax), color, 2)
-                if(label == "person"):
+                if(label == "stop sign"):
+                    #depthlabel = (depth_frame[point[1], point[0]]) #addition
+                    print (depth_frame[point[1], point[0]]) #addition
                     print("xmin ",xmin)
                     print("ymin",ymin)
                     print("xmax",xmax)
                     print("ymax", ymax) 
-                color_frame = cv2.putText(color_frame, f'{label} ({str(score)})', (xmin,ymin), cv2.FONT_HERSHEY_SIMPLEX , 0.75, color, 1, cv2.LINE_AA)
+                color_frame = cv2.putText(color_frame, f'{label} ({str(score)}) ({str(depthlabel)}) ', (xmin,ymin), cv2.FONT_HERSHEY_SIMPLEX , 0.75, color, 1, cv2.LINE_AA)
 
         # if(label == "stop sign"):
         #     kit.servo[0].angle = STOP
