@@ -25,7 +25,7 @@ The pyrealsense2 wrapper cannot be installed with the pip install pyrealsense2 m
 
 To fix this issue we followed this [article](https://cognitivexr.at/blog/2021/07/29/installing-pyrealsense2-nvidia-jetson-xavier-nx.html) to fix the python module compatability.
 
-Intel Realsense d435i can be used for various needs, such as detecting 3D objects. We used this [tutorial](https://pysource.com/2021/03/11/distance-detection-with-depth-camera-intel-realsense-d435i/) to find the distance of objects using OpenCV and the depth camera.
+Intel Realsense d435i can be used for various needs, such as detecting 3D objects. We used this [tutorial](https://pysource.com/2021/03/11/distance-detection-with-depth-camera-intel-realsense-d435i/) and this one [by intel](https://dev.intelrealsense.com/docs/nvidia-jetson-tx2-installation) to find the distance of objects using OpenCV and the depth camera.
 
 
 ```
