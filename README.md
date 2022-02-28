@@ -19,7 +19,7 @@ cd weights
 wget https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5s.pt
 ```
 
-Here is a comparison of all the YOLO models.
+Here is a comparison of all the recent YOLO models.
 ![YOLO comparison](https://user-images.githubusercontent.com/26833433/155040763-93c22a27-347c-4e3c-847a-8094621d3f4e.png)
 
 ## Depth Camera
