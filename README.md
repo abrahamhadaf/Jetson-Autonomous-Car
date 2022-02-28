@@ -32,7 +32,7 @@ Intel Realsense d435i can be used for various needs, such as detecting 3D object
 export PYTHONPATH=/usr/local/lib/python3.6/pyrealsense2
 python3 JetsonYolo.py
 ```
-## PCA 9685 and ESC
+## PCA9685 and ESC
 
 It's easy to use the PCA9685 sensor with Python or CircuitPython and the Adafruit CircuitPython PCA9685 module.  This module allows you to easily write Python code that control servos and PWM with this breakout.
 ```
