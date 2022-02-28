@@ -39,7 +39,7 @@ It's easy to use the PCA9685 sensor with Python or CircuitPython and the Adafrui
 sudo pip3 install adafruit-circuitpython-pca9685
 sudo pip3 install adafruit-circuitpython-servokit
 ```
-We can test the servo I2C Bus 1
+We can test the servo and throttle on I2C Bus 1
 ```
 from adafruit_servokit import ServoKit
 import board
