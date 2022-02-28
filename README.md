@@ -1,5 +1,5 @@
 # EEC 174BY Jetson Autonomous Car
-![D9D4A79D-5A82-48FF-9361-1C89C3AAD876](https://user-images.githubusercontent.com/45084728/156068020-8a7a3eb2-03fd-434b-8868-04bde9aac446.jpeg)
+![D9D4A79D-5A82-48FF-9361-1C89C3AAD876 2](https://user-images.githubusercontent.com/45084728/156068470-cbd6c61e-66b8-4e6d-9f33-7aa0a01bc8f1.jpeg)
 
 
 ## YOLOv5
