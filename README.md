@@ -39,3 +39,24 @@ It's easy to use the PCA9685 sensor with Python or CircuitPython and the Adafrui
 sudo pip3 install adafruit-circuitpython-pca9685
 sudo pip3 install adafruit-circuitpython-servokit
 ```
+We can test the servo I2C Bus 1
+```
+from adafruit_servokit import ServoKit
+import board
+import busio
+import time
+from approxeng.input.selectbinder import ControllerResource
+    
+print("Initializing Servos")
+i2c_bus1=(busio.I2C(board.SCL, board.SDA))
+print("Initializing ServoKit")
+kit = ServoKit(channels=16, i2c=i2c_bus1)
+print("Done initializing")
+
+## Turn 80 degrees
+kit.servo[0].angle = 80
+time.sleep(1)
+## Turn 120 degrees
+kit.servo[0].angle = 120
+time.sleep(1)
+```
