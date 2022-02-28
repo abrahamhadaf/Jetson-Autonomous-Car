@@ -11,7 +11,7 @@ Use the following command to check if a camera is recognized
 `ls /dev/video*`
 
 ## Download Yolov5 Model
-Select the desired model based on model size, required speed, and accuracy. You can find available models here in the Assets section. Download the model using the command below and move it to the weights folder. 
+Select the desired model based on model size, required speed, and accuracy. You can find available models here in the [Assets](https://github.com/ultralytics/yolov5/releases) section. Download the model using the command below and move it to the weights folder. 
 
 ```
 mkdir weights
