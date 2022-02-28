@@ -59,4 +59,6 @@ time.sleep(1)
 ## Turn 120 degrees
 kit.servo[0].angle = 120
 time.sleep(1)
+## Throttle
+kit.servo[1].angle = 120
 ```
