@@ -1,4 +1,6 @@
 # EEC 174BY Jetson Autonomous Car
+![D9D4A79D-5A82-48FF-9361-1C89C3AAD876](https://user-images.githubusercontent.com/45084728/156068020-8a7a3eb2-03fd-434b-8868-04bde9aac446.jpeg)
+
 
 ## YOLOv5
 
@@ -35,6 +37,10 @@ Intel Realsense d435i can be used for various needs, such as detecting 3D object
 export PYTHONPATH=/usr/local/lib/python3.6/pyrealsense2
 python3 JetsonYolo.py
 ```
+
+![trim FD0B2F82-268C-476C-B4A8-301CEF662D75](https://user-images.githubusercontent.com/45084728/156067969-0fe2ecd1-2fe2-4cbd-b051-d1dfe281d63a.gif)
+
+
 ## PCA9685 and ESC
 
 It's easy to use the PCA9685 sensor with Python or CircuitPython and the Adafruit CircuitPython PCA9685 module.  This module allows you to easily write Python code that control servos and PWM with this breakout. JetsonHacks provides his [ServoKit](https://www.jetsonhacks.com/2019/07/22/jetson-nano-using-i2c/) resource using the same method and module. 
