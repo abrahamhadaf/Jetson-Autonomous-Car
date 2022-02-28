@@ -7,6 +7,7 @@ import busio
 import time
 from approxeng.input.selectbinder import ControllerResource
 from realsense_depth import *
+# Import Pyrealsense2 by running this in terminal "export PYTHONPATH=/usr/local/lib/python3.6/pyrealsense2"
 import pyrealsense2
 
 # Execution time
@@ -15,8 +16,8 @@ start_time = time.time()
 # FOR THESE SPEEDS, THE CAR MUST BE IN TRAINING MODE OR ELSE THE CAR WILL GO FULL SPEED AND FLY TO KEMPER HALL
 STOP = 122
 LOWSPEED = 123 
-MEDIUMSPEED = 116 
-HIGHSPEED = 117
+#MEDIUMSPEED = 124 
+#HIGHSPEED = 125
 
 # print("Initializing Servos")
 # i2c_bus1=(busio.I2C(board.SCL, board.SDA))
@@ -116,9 +117,9 @@ if dc is not None:
             depths = depth_frame[point[1], point[0]]
             depthstop = int(depths)
             if(depthstop < 600):
-                print("Stop Tires")
-            else:
-                print("Driving")
+                print("Stopping")
+        else:
+            print("Driving")
         # if(label == "stop sign"):
         #     kit.servo[0].angle = STOP
 
