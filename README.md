@@ -4,7 +4,7 @@
 
 Yolov5 model is implemented in the Pytorch framework. PyTorch is an open-source machine learning library based on the Torch library, used for computer vision and natural language processing applications. Here is a complete guide for installing PyTorch & torchvision on [Jetson Development Kits](https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-10-now-available/72048/2).
 
-You can use the [JetsonHacks](https://github.com/JetsonHacksNano/CSI-Camera/blob/master/simple_camera.py) python code to capture frames from the camera using OpenCV.
+We'll be using a Intel Realsense D435 depth camera to detect the distance of objects.
 
 Use the following command to check if a camera is recognized
 
@@ -19,3 +19,6 @@ cd weights
 wget https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5s.pt
 ```
 
+
+`export PYTHONPATH=/usr/local/lib/python3.6/pyrealsense2
+`
