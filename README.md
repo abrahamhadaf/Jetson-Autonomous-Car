@@ -23,10 +23,10 @@ wget https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5s.pt
 
 The pyrealsense2 wrapper cannot be installed with the pip install pyrealsense2 method on devices with Arm processors such as Jetson, because the PyPi pip packages are not compatible with Arm processors. That typically means that the best option is to use CMake to build librealsense and the Python bindings at the same time.
 
+To fix this issue we followed this [article](https://cognitivexr.at/blog/2021/07/29/installing-pyrealsense2-nvidia-jetson-xavier-nx.html) to fix the python module compatability.
+
 Intel Realsense d435i can be used for various needs, such as detecting 3D objects. We used this [tutorial](https://pysource.com/2021/03/11/distance-detection-with-depth-camera-intel-realsense-d435i/) to find the distance of objects using OpenCV and the depth camera.
 
-
-To fix this issue we followed this [article](https://cognitivexr.at/blog/2021/07/29/installing-pyrealsense2-nvidia-jetson-xavier-nx.html) to fix the python module compatability.
 
 ```
 export PYTHONPATH=/usr/local/lib/python3.6/pyrealsense2
