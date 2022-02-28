@@ -19,6 +19,9 @@ cd weights
 wget https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5s.pt
 ```
 
+Here is a comparison of all the YOLO models.
+![YOLO comparison](https://user-images.githubusercontent.com/26833433/155040763-93c22a27-347c-4e3c-847a-8094621d3f4e.png)
+
 ## Depth Camera
 
 The pyrealsense2 wrapper cannot be installed with the pip install pyrealsense2 method on devices with Arm processors such as Jetson, because the PyPi pip packages are not compatible with Arm processors. That typically means that the best option is to use CMake to build librealsense and the Python bindings at the same time.
