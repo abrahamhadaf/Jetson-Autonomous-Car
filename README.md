@@ -71,4 +71,9 @@ time.sleep(1)
 ## Throttle
 kit.servo[1].angle = 120
 ```
+![trim 43EDAA41-258F-4B9F-BB5A-DB42CBF3124A](https://user-images.githubusercontent.com/45084728/156069635-38dddec5-0083-4e1f-a0eb-c1b026f38e30.gif)
+
+
+
+
 
