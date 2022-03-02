@@ -46,11 +46,11 @@ Object_colors = list(np.random.rand(80,3)*255)
 Object_detector = OBJ_DETECTION('weights/yolov5m.pt', Object_classes)
 
 def gstreamer_pipeline(
-    capture_width=640,
-    capture_height=360,
+    capture_width=320,
+    capture_height=180,
     display_width=640,
     display_height=360,
-    framerate=40,
+    framerate=30,
     flip_method=0,
 ):
     return (
@@ -118,8 +118,15 @@ if dc is not None:
             depthstop = int(depths)
             if(depthstop < 600):
                 print("Stopping")
+        elif(label == "person"):
+            if(xmin > 200):
+                print("Turning Left")
+            if(xmin < 200):
+                print("Turning right")
         else:
             print("Driving")
+
+        
         # if(label == "stop sign"):
         #     kit.servo[0].angle = STOP
 
