@@ -74,6 +74,7 @@ kit.servo[1].angle = 120
 ![trim 43EDAA41-258F-4B9F-BB5A-DB42CBF3124A](https://user-images.githubusercontent.com/45084728/156069635-38dddec5-0083-4e1f-a0eb-c1b026f38e30.gif)
 
 
+![trim 3D35DD19-279A-4C4F-B70A-8C7F27E4E071](https://user-images.githubusercontent.com/45084728/156446457-172b59ed-e3a5-4f0d-a895-c1d44114b07d.gif)
 
 
 
