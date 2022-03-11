@@ -45,7 +45,7 @@ python3 JetsonYolo.py
 
 ## PCA9685 and ESC
 
-It's easy to use the PCA9685 sensor with Python or CircuitPython and the Adafruit CircuitPython PCA9685 module.  This module allows you to easily write Python code that control servos and PWM with this breakout. JetsonHacks provides his [ServoKit](https://www.jetsonhacks.com/2019/07/22/jetson-nano-using-i2c/) resource using the same method and module. 
+It's easy to use the PCA9685 sensor with Python or CircuitPython and the Adafruit CircuitPython PCA9685 module.  This module allows you to easily write Python code that control servos and PWM with this breakout. JetsonHacks provides his [ServoKit](https://www.jetsonhacks.com/2019/07/22/jetson-nano-using-i2c/) resource and [lab tutorial](https://eec193.github.io/) using the same method and module. 
 ```
 sudo pip3 install adafruit-circuitpython-pca9685
 sudo pip3 install adafruit-circuitpython-servokit
