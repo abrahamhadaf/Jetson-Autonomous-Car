@@ -14,16 +14,16 @@ import pyrealsense2
 start_time = time.time()
 
 # FOR THESE SPEEDS, THE CAR MUST BE IN TRAINING MODE OR ELSE THE CAR WILL GO FULL SPEED AND FLY TO KEMPER HALL
-STOP = 122
-LOWSPEED = 123 
+STOP = 110
+LOWSPEED = 115 
 #MEDIUMSPEED = 124 
 #HIGHSPEED = 125
 
-# print("Initializing Servos")
-# i2c_bus1=(busio.I2C(board.SCL, board.SDA))
-# print("Initializing ServoKit")
-# kit = ServoKit(channels=16, i2c=i2c_bus1)
-# print("Done initializing")
+print("Initializing Servos")
+i2c_bus1=(busio.I2C(board.SCL, board.SDA))
+print("Initializing ServoKit")
+kit = ServoKit(channels=16, i2c=i2c_bus1)
+print("Done initializing")
 
 point = (400, 300)
 
@@ -116,15 +116,21 @@ if dc is not None:
         if(label == "stop sign"):
             depths = depth_frame[point[1], point[0]]
             depthstop = int(depths)
-            if(depthstop < 600):
+            if(depthstop < 400 and depthstop > 1):
                 print("Stopping")
-        elif(label == "person"):
+                kit.servo[1].angle = STOP
+            else:
+                print("Driving")
+                kit.servo[1].angle = LOWSPEED
+        if(label == "person"):
             if(xmin > 200):
                 print("Turning Left")
+                kit.servo[0].angle = 60
             if(xmin < 200):
                 print("Turning right")
-        else:
-            print("Driving")
+                kit.servo[0].angle = 120
+        
+
 
         
         # if(label == "stop sign"):
