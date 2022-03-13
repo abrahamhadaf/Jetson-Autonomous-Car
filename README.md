@@ -1,5 +1,7 @@
 # EEC 174BY Jetson Autonomous Car
-![D9D4A79D-5A82-48FF-9361-1C89C3AAD876 2](https://user-images.githubusercontent.com/45084728/156068470-cbd6c61e-66b8-4e6d-9f33-7aa0a01bc8f1.jpeg)
+![IMG_0989](https://user-images.githubusercontent.com/45084728/158081913-04ebb779-8b2b-41a3-9770-9982ced32215.jpeg)
+
+
 
 ## Requirements
 [Pytorch](https://qengineering.eu/install-pytorch-on-jetson-nano.html)
