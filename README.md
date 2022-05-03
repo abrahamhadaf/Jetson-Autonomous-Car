@@ -1,6 +1,8 @@
 # EEC 174BY Jetson Autonomous Car
 ![IMG_0989](https://user-images.githubusercontent.com/45084728/158081913-04ebb779-8b2b-41a3-9770-9982ced32215.jpeg)
 
+### Received EEC 174BY Outstanding Senior Design Project Award
+
 
 
 ## Requirements
